@@ -5,6 +5,17 @@ function useCounter(initState){
 
     let [loading, setLoading] = useState(false)
 
+    let [dummyState, updateDummyState] = useState(false)
+
+    const toggleDummyState = () => {
+        console.log("toggle dummy state")
+        dummyState = updateDummyState(!dummyState)
+
+    }
+    useEffect( () => {
+        console.log("only for this dummy state")
+    }, [dummyState])
+
     const updateCount = () => {
         // setCount(count + 1)
         getData()
@@ -29,13 +40,16 @@ function useCounter(initState){
     }
 
     useEffect( () => {
+        console.log("should run only single time")
         getData()
     }, [])
+    // above will run only one single time
 
     return {
         count,
         updateCount,
-        loading
+        loading,
+        toggleDummyState
     }
 }
 

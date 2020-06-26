@@ -9,7 +9,8 @@ function App() {
   let {
     count,
     updateCount,
-    loading
+    loading,
+    toggleDummyState
   } = useTodo(1)
   
   let display = count
@@ -26,7 +27,10 @@ function App() {
           <br/>
 
           <button onClick={updateCount}>Count</button>
+           
+          <br/>
 
+          <button onClick={toggleDummyState}>Dummy Button</button>
       </header>
     </div>
   );
