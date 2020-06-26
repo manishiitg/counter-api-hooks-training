@@ -8,14 +8,20 @@ function App() {
 
   let {
     count,
-    updateCount
+    updateCount,
+    loading
   } = useTodo(1)
   
+  let display = count
+
+  if(loading){
+    display = "..."
+  }
   return (
     <div className="App">
       <header className="App-header">
         
-          <h1>{count}</h1>
+          <h1>{display}</h1>
 
           <br/>
 
